@@ -1,1 +1,8 @@
 Test
+Schnitzel
+Hunger
+ f(t)=cos(t)*cos(4t)
+
+ #include <bits/stdc++.h>
+#include <math.h> 
+using namespace std;
