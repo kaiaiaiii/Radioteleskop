@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-
+#include <complex>
 //Dataset will first be given by me/downloaded somewhere (link will follow) and later on be implemented by me directly
 //need to fix this one, its just the algorithm
 /*
@@ -20,7 +20,18 @@ void fft(n, f) {
 */
 int DFT()
 {
-   double LsgVektor[10]={0,0,0,0,0,0,0,0,0,0};
+   float LsgVektor[10]={0,0,0,0,0,0,0,0,0,0};
+   int Vektor_Length = 10;
+   int Hilfsvariable; 
+   int iteration_count=0;
+   for (i = 0; i < Vektor_Length; i++)
+   {
+        for (int i = 0;i i < iteration_count; i++)
+        {
+            
+        }
+    LsgVektor[i]=exp(-2*pi)*
+   }
 }
 
 // Updated
