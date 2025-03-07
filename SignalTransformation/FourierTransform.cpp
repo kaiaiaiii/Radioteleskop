@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+
 //Dataset will first be given by me/downloaded somewhere (link will follow) and later on be implemented by me directly
 //need to fix this one, its just the algorithm
 /*
@@ -21,6 +22,8 @@ int DFT()
 {
    double LsgVektor[10]={0,0,0,0,0,0,0,0,0,0};
 }
+
+// Updated
 int calculator(int x, int y){
     int x, y;
     int sum;
@@ -37,7 +40,7 @@ int main() {
     std::cin>> t;
     for (double t = 0; t<20.01; t=t+0.2){
     //double t = 1.0;]
-
+    std::cout << "Versuch3";
     double result = cos(t);
     std::cout <<  result << "\n";
     }
