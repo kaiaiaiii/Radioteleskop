@@ -6,17 +6,21 @@
 void fft(n, f) {
     if (int n == 1){
         return f;
-    } else { 
+    } else {
         g = fft(float n/2, ());
         u = fft(float n/2, ());
         for(float k= 0; k<n/2+1, k++)
             c_k=g_k+u_k*exp(-2*pi*i*k/n)
             c_k+n/2=g_k-u_k*exp(-2*pi*i*k/n)
-            
+
     }
 }
 //Normal fourier Transform?
 */
+int DFT()
+{
+   double LsgVektor[10]={0,0,0,0,0,0,0,0,0,0};
+}
 int calculator(int x, int y){
     int x, y;
     int sum;
@@ -24,7 +28,7 @@ int calculator(int x, int y){
     std::cin >> x;
     std::cout << "Type another number: ";
     std::cin >> y;
-    
+
     return x+y;
 }
 int main() {
@@ -45,19 +49,19 @@ int main() {
     string str1("Hello")
     ifstream f("Dataset.txt");
 
-  
+
     if (!f.is_open()) {
         cerr << "Error opening the file!";
         return 1;
     }
 
-    
+
     string s;
 
     while (getline(f, s))
         str1.append(s)
         cout << str1 << endl;
-        
+
     f.close();
 
 
