@@ -1,6 +1,9 @@
 #include <iostream>
 #include <cmath>
 #include <complex>
+#include <math.h>
+#include <vector>
+
 //Dataset will first be given by me/downloaded somewhere (link will follow) and later on be implemented by me directly
 //need to fix this one, its just the algorithm
 /*
@@ -18,23 +21,38 @@ void fft(n, f) {
 }
 //Normal fourier Transform?
 */
-int DFT()
-{
-   float LsgVektor[10]={0,0,0,0,0,0,0,0,0,0};
-   int Vektor_Length = 10;
-   int Hilfsvariable; 
-   int iteration_count=0;
-   for (i = 0; i < Vektor_Length; i++)
+int main()
+{   
+   int length;
+   std::cout << "Length input: ";
+   std::cin >> length;
+   std::vector<double> Inputvektor(length, 0.0);
+
+   for (int k =0; k<length; k++)
    {
-        for (int i = 0;i i < iteration_count; i++)
+    std::cin >> Inputvektor[k];
+    std::cout << Inputvektor;
+   }
+   double LsgVektor[10]={0,0,0,0,0,0,0,0,0,0};
+   double Vektor_Length = 10;
+   double HilfsVektor[10]={0,0,0,0,0,0,0,0,0,0}; 
+   double iteration_count=0;
+   for (int j = 0; j< Vektor_Length; j++)
+   {
+        for (int i = 0;i < iteration_count; i++)
         {
-            
+            HilfsVektor[i]=j*i/Vektor_Length;
         }
-    LsgVektor[i]=exp(-2*pi)*
+    LsgVektor[j]=exp(HilfsVektor[j]); //std::imag*3,14*-2
+    return 0;
    }
 }
-
-// Updated
+/*
+int main(){
+    DFT();
+    return;
+}
+/* Updated
 int calculator(int x, int y){
     int x, y;
     int sum;
@@ -59,7 +77,7 @@ int main() {
     //for (int )
 
 
-    /*
+    
     string str1("Hello")
     ifstream f("Dataset.txt");
 
