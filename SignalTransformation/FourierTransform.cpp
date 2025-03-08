@@ -3,6 +3,7 @@
 #include <complex>
 #include <math.h>
 #include <vector>
+#include <iomanip>
 
 //Dataset will first be given by me/downloaded somewhere (link will follow) and later on be implemented by me directly
 //need to fix this one, its just the algorithm
@@ -21,32 +22,59 @@ void fft(n, f) {
 }
 //Normal fourier Transform?
 */
+/*
+void DFT()
+{
+    double Vektor_Length;
+    std::vector<double> LsgVektor(Vektor_Length, 0.0);
+    std::vector<double> HilfsVektor(Vektor_Length, 0.0);
+    double iteration_count=0;
+    for (int j = 0; j< Vektor_Length; j++)
+    {
+         for (int i = 0;i < iteration_count; i++)
+         {
+             HilfsVektor[i]=j*i/Vektor_Length;
+             std::cout << HilfsVektor[i];
+         }
+         LsgVektor[j]=exp(HilfsVektor[j]*2); //std::imag*3,14*-2
+         std::cout << LsgVektor[j];
+         std::cout << LsgVektor[1];
+         std::cout << LsgVektor[2];
+    }
+}*/
+
 int main()
 {   
-   int length;
+   double Vektor_Length;
    std::cout << "Length input: ";
-   std::cin >> length;
-   std::vector<double> Inputvektor(length, 0.0);
-
-   for (int k =0; k<length; k++)
+   std::cin >> Vektor_Length;
+   std::vector<double> Inputvektor(Vektor_Length, 0.0);
+    // Vektor input, erstmal Manuell
+   for (int k =0; k< Vektor_Length; k++)
    {
+    std::cout << "Position " << k+1 << ": ";
     std::cin >> Inputvektor[k];
-    std::cout << Inputvektor;
+    // std::cout << Inputvektor;
    }
-   double LsgVektor[10]={0,0,0,0,0,0,0,0,0,0};
-   double Vektor_Length = 10;
-   double HilfsVektor[10]={0,0,0,0,0,0,0,0,0,0}; 
-   double iteration_count=0;
+   
+   //DFT Berechnung
+   std::vector<double> LsgVektor(Vektor_Length, 0.0);
+   std::vector<double> HilfsVektor(Vektor_Length, 0.0);
+   double iteration_count=Vektor_Length;
    for (int j = 0; j< Vektor_Length; j++)
    {
-        for (int i = 0;i < iteration_count; i++)
+        for (int i = 1;i < iteration_count; i++)
         {
             HilfsVektor[i]=j*i/Vektor_Length;
+            std::cout << "Hilfsvektor " << i+1 << ": " << HilfsVektor[i] << "\n";
         }
-    LsgVektor[j]=exp(HilfsVektor[j]); //std::imag*3,14*-2
+        LsgVektor[j]=exp(HilfsVektor[j]*2); //std::imag*3,14*-2
+        std::cout << "LSGVektor " << j+1 << ": " << LsgVektor[j] << "\n";
+   } 
     return 0;
-   }
 }
+
+
 /*
 int main(){
     DFT();
