@@ -4,6 +4,7 @@
 #include <math.h>
 #include <vector>
 #include <iomanip>
+#include <fstream>
 
 //Dataset will first be given by me/downloaded somewhere (link will follow) and later on be implemented by me directly
 //need to fix this one, its just the algorithm
@@ -42,7 +43,14 @@ void DFT()
          std::cout << LsgVektor[2];
     }
 }*/
-
+void ReadFromFile(){
+    std::string Text_from_file;
+    std::ifstream DFT_File("Dataset.txt") ;
+    while (getline (DFT_File, Text_from_file)){
+        std::cout << Text_from_file;
+    };
+    DFT_File.close();
+}
 int main()
 {   
    double Vektor_Length;
@@ -65,12 +73,14 @@ int main()
    {
         for (int i = 1;i < iteration_count; i++)
         {
-            HilfsVektor[i]=j*i/Vektor_Length;
+            HilfsVektor[i]=j*i/(Vektor_Length+1);
             std::cout << "Hilfsvektor " << i+1 << ": " << HilfsVektor[i] << "\n";
         }
-        LsgVektor[j]=exp(HilfsVektor[j]*2); //std::imag*3,14*-2
+        // es fehlt noch imag in der Gleichung
+        LsgVektor[j]=exp(-HilfsVektor[j]*2*3.14)*Inputvektor[j]; //std::imag*3,14*-2
         std::cout << "LSGVektor " << j+1 << ": " << LsgVektor[j] << "\n";
    } 
+   ReadFromFile();
     return 0;
 }
 
