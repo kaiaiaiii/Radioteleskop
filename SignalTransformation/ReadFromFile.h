@@ -2,13 +2,14 @@ using namespace std;
 
 double CSV_Split()
 {   // Daten von File lesen
-    double Testinteger = 1;
+    double Vektor_Length=0;
     string Text_from_file, Dataset, String_Split;
     ifstream DFT_File("Dataset.txt");
     complex <double> S2F;
     // Daten in String schreiben
     while (getline (DFT_File, Text_from_file)){
         Dataset = Text_from_file;
+        Vektor_Length +=1;
         //cout <<Dataset;
     }
     DFT_File.close();
@@ -21,5 +22,5 @@ double CSV_Split()
         //S2F = stof(String_Split);
         //cout << S2F;
     }
-    return Testinteger;
+    return Vektor_Length;
 }
