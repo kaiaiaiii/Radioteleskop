@@ -6,3 +6,5 @@ The building of the telescope, including plans and calculations can be found in 
 Other stuff will follow.
 
 Is C++ the right language to use it for this project? Idk, but it will be pain
+
+Update: For visualisation Python will be used

@@ -53,11 +53,11 @@ int main()
     {
          for (int k = 1;k < max_frequency; k++)
          {
-             HilfsVektor[k] += (-2*3,141)+(k*n/Vektor_Length); // imag fehlt
+             Hilfsergebnis += (-2*3,141)+(k*n/Vektor_Length); // imag fehlt
              //cout << "Hilfsvektor " << k+1 << ": " << HilfsVektor[k] << "\n";
          }
          
-         LsgVektor[n]+=exp(HilfsVektor[n])*InputVektor[n];
+         LsgVektor[n]+=exp(Hilfsergebnis)*InputVektor[n];
          cout << "LSGVektor " << n+1 << ": " << LsgVektor[n] << "\n";
     } 
     return 0;
