@@ -1,1 +1,7 @@
-SDR?
+Given Materials
+-Satellite Bowl
+-Cheap SDR
+-Bypass Filters
+
+
+
