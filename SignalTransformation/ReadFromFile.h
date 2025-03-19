@@ -6,6 +6,7 @@
 #include <iostream>
 using namespace std;
 double Vektor_Length;
+
 double ReadFromFile(string Filename)
 {   // Daten von File lesen
     string Text_from_file, Dataset, String_Split;
@@ -22,3 +23,4 @@ double ReadFromFile(string Filename)
     }
     return Vektor_Length;
 }
+
