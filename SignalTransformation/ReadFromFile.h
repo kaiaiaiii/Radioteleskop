@@ -1,16 +1,14 @@
-#pragma once
 #include <fstream>
 #include <filesystem>
 #include <string>
 #include <sstream>
 #include <complex>
 #include <iostream>
-
 using namespace std;
 
 double ReadFromFile(string Filename)
 {   // Daten von File lesen
-    double Vektor_Length=0;
+    double Vektor_Length;
     string Text_from_file, Dataset, String_Split;
     ifstream DFT_File(Filename);
     complex <double> S2F;
@@ -23,6 +21,5 @@ double ReadFromFile(string Filename)
         cout << String_Split << endl;
         Vektor_Length += 1;
     }
-    cout << Vektor_Length;
     return Vektor_Length;
 }

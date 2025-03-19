@@ -16,7 +16,7 @@ using namespace std;
 //Discrete Fourier Transform
 
 double Vektor_Length =0; 
-void ReadFromFile()
+double ReadFromFile()
 {   // Daten von File lesen
     string Text_from_file, Dataset, String_Split;
     ifstream DFT_File("1.txt");
@@ -39,6 +39,7 @@ void ReadFromFile()
 
 int main()
 {   DFT({1,2,1,2});
+    ReadFromFile();
     return 0;
 }
 
