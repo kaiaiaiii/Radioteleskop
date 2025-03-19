@@ -7,7 +7,6 @@ using namespace std;
 }*/
 
 int main(){
-    ReadFromFile("/home/vboxuser/Documents/repos/Radioteleskop/SignalTransformation/Dataset/Dataset.txt", 0);
-    //double Test = Vektor_Length;
+    ReadFromFile("/home/vboxuser/Documents/repos/Radioteleskop/SignalTransformation/Dataset/Dataset.txt");
     cout << Vektor_Length;
 }

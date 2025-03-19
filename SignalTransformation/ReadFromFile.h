@@ -5,10 +5,10 @@
 #include <complex>
 #include <iostream>
 using namespace std;
-
+double Vektor_Length;
 double ReadFromFile(string Filename)
 {   // Daten von File lesen
-    double Vektor_Length;
+    double ctr;
     string Text_from_file, Dataset, String_Split;
     ifstream DFT_File(Filename);
     complex <double> S2F;
@@ -19,7 +19,8 @@ double ReadFromFile(string Filename)
     stringstream obj_ss(Dataset);
     while (getline(obj_ss, String_Split, ',')) {
         cout << String_Split << endl;
-        Vektor_Length += 1;
+        ctr += 1;
     }
+    Vektor_Length = ctr;
     return Vektor_Length;
 }
