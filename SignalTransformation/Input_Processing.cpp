@@ -1,5 +1,12 @@
 #include "ReadFromFile.h"
+using namespace std;
+
+/*void StringToComplex(Vektor_Length, Dataset){
+    ReadFromFile("/home/vboxuser/Documents/repos/Radioteleskop/SignalTransformation/Dataset/Dataset.txt");
+    cout << Vektor_Length;
+}*/
 
 int main(){
-    CSV_Split();
+    ReadFromFile("/home/vboxuser/Documents/repos/Radioteleskop/SignalTransformation/Dataset/Dataset.txt");
+    //cout << Vektor_Length;
 }
