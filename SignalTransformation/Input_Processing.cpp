@@ -8,5 +8,6 @@ using namespace std;
 
 int main(){
     ReadFromFile("/home/vboxuser/Documents/repos/Radioteleskop/SignalTransformation/Dataset/Dataset.txt");
-    cout << Vektor_Length;
+    StringToComplex(Dataset);
+    DFT(ComplexVektor);
 }

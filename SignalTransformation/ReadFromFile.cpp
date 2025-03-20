@@ -5,11 +5,11 @@
 #include <complex>
 #include <iostream>
 using namespace std;
-string String_Split;
-int StringLaenge=0;
+double Vektor_Length;
+string Dataset;
 double ReadFromFile(string Filename)
 {   // Daten von File lesen
-    string Text_from_file, Dataset;
+    string Text_from_file, String_Split;
     ifstream DFT_File(Filename);
     while (getline (DFT_File, Text_from_file)){
         Dataset = Text_from_file;
@@ -18,12 +18,12 @@ double ReadFromFile(string Filename)
     stringstream obj_ss(Dataset);
     while (getline(obj_ss, String_Split, ',')) {
         cout << String_Split << endl;
-        StringLaenge+=StringLaenge;
-        // evtl hier direkt string Wandeln und in einen Vektor schreiben?
+        Vektor_Length += 1;
     }
-    
-    for (int i =0; i < StringLaenge; i++){
-        //Hier irgendwie den String geordnet in ein Array schreiben
-    }
+    return Vektor_Length;
 }
 
+int main(){
+    ReadFromFile();
+    return 0;
+}
