@@ -11,7 +11,6 @@ double ReadFromFile(string Filename)
 {   // Daten von File lesen
     string Text_from_file, Dataset, String_Split;
     ifstream DFT_File(Filename);
-    complex <double> S2F;
     while (getline (DFT_File, Text_from_file)){
         Dataset = Text_from_file;
     }
