@@ -5,7 +5,7 @@
 #include <complex>
 #include <iostream>
 using namespace std;
-string String_Split;
+complex String_Split;
 int StringLaenge=0;
 double ReadFromFile(string Filename)
 {   // Daten von File lesen

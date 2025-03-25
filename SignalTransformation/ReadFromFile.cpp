@@ -6,24 +6,29 @@
 #include <iostream>
 using namespace std;
 double Vektor_Length;
-string Dataset;
+string String_Split;
+//complex<double> S2C;
 double ReadFromFile(string Filename)
 {   // Daten von File lesen
-    string Text_from_file, String_Split;
+    string TextFromFile, Dataset;
     ifstream DFT_File(Filename);
-    while (getline (DFT_File, Text_from_file)){
-        Dataset = Text_from_file;
+    while (getline (DFT_File, TextFromFile)){
+        Dataset = TextFromFile;
     }
     DFT_File.close();
+    // String aufteilen und in komplexe Zahl umwandeln
     stringstream obj_ss(Dataset);
     while (getline(obj_ss, String_Split, ',')) {
         cout << String_Split << endl;
+        istringstream S2C(String_Split);
+        complex<double> KomplexeZahl=S2C;
+        cout << KomplexeZahl;
         Vektor_Length += 1;
     }
     return Vektor_Length;
 }
 
 int main(){
-    ReadFromFile();
+    ReadFromFile("Dataset.txt");
     return 0;
 }
