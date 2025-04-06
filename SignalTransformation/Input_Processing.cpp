@@ -1,4 +1,5 @@
 #include "ReadFromFile.h"
+#include "DFT.h"
 using namespace std;
 
 /*void StringToComplex(Vektor_Length, Dataset){
@@ -9,5 +10,6 @@ using namespace std;
 int main(){
     ReadFromFile("/home/vboxuser/Documents/repos/Radioteleskop/SignalTransformation/Dataset/Dataset.txt");
     StringToComplex(Dataset);
-    DFT(ComplexVektor);
+    DFT({1,2,3});
+
 }

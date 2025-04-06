@@ -22,5 +22,5 @@ void DFT(vector<complex<double>> InputVektor){
 }
 
 int main(){
-    DFT();
+    DFT({1,2,3});
 }
