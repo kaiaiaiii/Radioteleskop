@@ -21,6 +21,6 @@ void DFT(vector<complex<double>> InputVektor){
         }
 }
 
-int main(){
+int DiscreteFourierTransform::DFT(){
     DFT({1,2,3});
 }
