@@ -13,6 +13,7 @@ void ReadFromFile::step()
 {
     ReadFromFile(Dataset.txt);
 }
+
 double ReadFromFile::ReadFromFile(string Filename)
 {   // Daten von File lesen
     string TextFromFile, Dataset;
