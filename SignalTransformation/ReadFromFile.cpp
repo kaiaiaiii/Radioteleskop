@@ -7,8 +7,13 @@
 using namespace std;
 double Vektor_Length;
 string String_Split;
-//complex<double> S2C;
-double ReadFromFile(string Filename)
+
+
+void ReadFromFile::step()
+{
+    ReadFromFile(Dataset.txt);
+}
+double ReadFromFile::ReadFromFile(string Filename)
 {   // Daten von File lesen
     string TextFromFile, Dataset;
     ifstream DFT_File(Filename);
@@ -28,7 +33,3 @@ double ReadFromFile(string Filename)
     return Vektor_Length;
 }
 
-int main(){
-    ReadFromFile("Dataset.txt");
-    return 0;
-}
