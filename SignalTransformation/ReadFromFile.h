@@ -3,11 +3,16 @@
 #include <string>
 #include <sstream>
 #include <complex>
+#include <vector>
 #include <iostream>
-using namespace std;
-class ReadFromFile;
-protected:
-    complex String_Split;
-    int StringLaenge=0;
-    double ReadFromFile(string Filename);
 
+using namespace std;
+
+class ReadFromFile{
+    public:
+        double ReadFromFile(const string& Filename);
+    protected:
+        vector<string> String_Split;
+        int StringLaenge=0;
+
+}

@@ -5,7 +5,7 @@
 using namespace std; 
 
 class DiscreteFourierTransform{
-    protected:
+    public:
         void DFT(vector<complex<double>> InputVektor);
         void Transformation();
         double AbsolutWert;
