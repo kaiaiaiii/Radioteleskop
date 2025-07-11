@@ -26,3 +26,8 @@ void DiscreteFourierTransform::Transformation(){
     DFT({1,2,3});
 }
 
+int main(){
+    DiscreteFourierTransform dft;
+    dft.DFT({complex<double>(1), complex<double>(2), complex<double>(3)});
+    return 0;
+}
