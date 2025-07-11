@@ -2,8 +2,10 @@
 #include <vector>
 #include <complex>
 #include <cmath>
+#include "DFT.h"
 using namespace std; 
-void DFT(vector<complex<double>> InputVektor){
+
+void DiscreteFourierTransform::DFT(vector<complex<double>> InputVektor){
     double Vektor_Length = InputVektor.size();
     vector<complex<double>> ErgebnisVektor(Vektor_Length, 0);
     vector<complex<double>> Hilfsergebnis(Vektor_Length, 0);
@@ -20,7 +22,8 @@ void DFT(vector<complex<double>> InputVektor){
 
         }
 }
-
-int DiscreteFourierTransform::DFT(){
+/*
+void DiscreteFourierTransform::Transformation(){
     DFT({1,2,3});
 }
+*/
