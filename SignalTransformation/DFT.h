@@ -9,4 +9,7 @@ class DiscreteFourierTransform{
         void DFT(vector<complex<double>> InputVektor);
         void Transformation();
         double AbsolutWert;
+        
+        complex<double> a=-1;
+        complex<double> imag = sqrt(a);
     };

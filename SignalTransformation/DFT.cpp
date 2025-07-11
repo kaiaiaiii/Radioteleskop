@@ -6,11 +6,10 @@
 using namespace std; 
 
 void DiscreteFourierTransform::DFT(vector<complex<double>> InputVektor){
+
     double Vektor_Length = InputVektor.size();
     vector<complex<double>> ErgebnisVektor(Vektor_Length, 0);
-    vector<complex<double>> Hilfsergebnis(Vektor_Length, 0);
-    complex<double> a=-1;
-    complex<double> imag = sqrt(a);
+
     for (double k =0; k<(Vektor_Length); k++)
         {
             for (double j =0; j<(Vektor_Length); j++)
@@ -22,8 +21,8 @@ void DiscreteFourierTransform::DFT(vector<complex<double>> InputVektor){
 
         }
 }
-/*
+
 void DiscreteFourierTransform::Transformation(){
     DFT({1,2,3});
 }
-*/
+
