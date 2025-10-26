@@ -1,3 +1,6 @@
+#ifndef READFROMFILE_H
+#define READFROMFILE_H
+
 #include <fstream>
 #include <filesystem>
 #include <string>
@@ -8,11 +11,13 @@
 
 using namespace std;
 
-class ReadFromFile{
-    public:
-        double ReadFromFile(const string& Filename);
-    protected:
-        vector<string> String_Split;
-        int StringLaenge=0;
+class ReadFromFile {
+public:
+    double ReadDataFromFile(const string& filename);
 
-}
+protected:
+    vector<string> String_Split;
+    int StringLaenge = 0;
+};
+
+#endif // READFROMFILE_H
