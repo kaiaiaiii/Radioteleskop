@@ -1,3 +1,31 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Daten
+k = np.arange(3)
+magnitude = [2.1097, 1.3146, 0.5844]
+phase = [-2.076, 2.081, 2.589]
+
+# Magnitude Plot
+plt.figure()
+plt.stem(k, magnitude, use_line_collection=True)
+plt.xlabel("Frequenzindex k")
+plt.ylabel("|X[k]|")
+plt.title("Magnitude-Spektrum")
+plt.grid(True)
+
+# Phase Plot
+plt.figure()
+plt.stem(k, phase, use_line_collection=True)
+plt.xlabel("Frequenzindex k")
+plt.ylabel("Phase [rad]")
+plt.title("Phasen-Spektrum")
+plt.grid(True)
+
+plt.show()
+
+
+'''
 import pyvista as pv
 #import numpy as np
 import os

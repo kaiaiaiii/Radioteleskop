@@ -4,24 +4,61 @@
 #include <cmath>
 using namespace std; 
 
-void SignalTransformation::DFT(vector<complex<double>> InputVektor){
 
-    double Vektor_Length = InputVektor.size();
-    vector<complex<double>> ErgebnisVektor(Vektor_Length, 0);
-
-    for (double k =0; k<(Vektor_Length); k++)
-        {
-            for (double j =0; j<(Vektor_Length); j++)
+class SignalTransformation{
+public:
+    static void DFT(vector<complex<double>> InputVektor){
+        void Transformation();
+        double AbsolutWert;
+        complex<double> a=-1;
+        complex<double> imag = sqrt(a);
+        double Vektor_Length = InputVektor.size();
+        vector<complex<double>> ErgebnisVektor(Vektor_Length, 0);
+        vector<double> Magnitudenvektor(Vektor_Length);
+        vector<double> Phasenvektor(Vektor_Length); 
+        for (double k =0; k<(Vektor_Length); k++)
             {
-                ErgebnisVektor[k]+= (1/sqrt(Vektor_Length))*InputVektor[j]*exp(-2*M_PI*imag*j*(k)/(Vektor_Length));
-            }
-            
-            cout << ErgebnisVektor[k];
+                for (double j =0; j<(Vektor_Length); j++)
+                {
+                    ErgebnisVektor[k]+= (1/sqrt(Vektor_Length))*InputVektor[j]*exp(-2*M_PI*imag*j*(k)/(Vektor_Length));
+                }
+                Magnitudenvektor[k] = sqrt(ErgebnisVektor[k].imag()*ErgebnisVektor[k].imag() + ErgebnisVektor[k].real()*(ErgebnisVektor[k].real()));
+                Phasenvektor[k] = atan2(ErgebnisVektor[k].imag(), ErgebnisVektor[k].real());
+                cout << "Ergebnis" << ErgebnisVektor[k];
+                cout << "Magnitude" << Magnitudenvektor[k];
+                cout << "Phase" << Phasenvektor[k] << '\n';
 
-        }
-}
+        };
+};
+/*
+Magnitude:
 
-double Vektor_Length = 0; // Initialisierung außerhalb der Klasse
+∣X[1]∣≈0.643112+1.146552≈1.3146
+∣X[1]∣≈
+0.64311
+2
++1.14655
+2
+​
+
+≈
+1.3146
+	​
+
+
+Phase:
+
+φ1≈atan2⁡(1.14655,−0.64311)≈2.081 rad  (119.2∘)
+φ
+1
+	​
+
+≈atan2(1.14655,−0.64311)≈
+2.081 rad
+(119.2∘
+
+/////
+double Vektor_Length = 0;
 
 double SignalTransformation::ReadDataFromFile(const string& Filename)
 {
@@ -89,6 +126,14 @@ void SignalTransformation::WriteToFile(ComplexerString){
     }
 }
 
-void SignalTransformation::StringToComplex(){
-    
-}
+void SignalTransformation::StringToComplex(string InputString, double Laenge){
+    complex<double> ComplexVektor(Laenge, 0.0);
+        Hilfsstring = InputString;
+        complex<double> result = stood(InputString);
+        istringstream S2F('('+ InputString[i] + ')');
+        complex<double> ComplexVektor[i];
+        S2F >> ComplexVektor[i];
+
+        cout << result;
+}*/
+};
