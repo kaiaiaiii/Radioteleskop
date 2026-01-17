@@ -8,8 +8,13 @@ using namespace std;
 
 
 int main(){
-
-    //vector<complex<double>> Auslesevektor = SignalTransformation::ReadDataFromFile();
-    SignalTransformation::DFT({1,2,3});
+    string FileName = "Dataset.txt";
+    vector<complex<double>> Auslesevektor = SignalTransformation::ReadDataFromFile(FileName);
+    cout << "geladene Daten: "<< endl;
+    for(auto& c: Auslesevektor){
+        cout << c.real() << endl;
+    }
+    cout << Auslesevektor.size();
+    SignalTransformation::DFT(Auslesevektor);
     return 0;
 }

@@ -33,7 +33,6 @@ double ReadFromFile::ReadDataFromFile(const string& Filename)
         S2C >> KomplexeZahl;
 
         cout << "Komplexe Zahl: " << KomplexeZahl << endl;
-        Vektor_Length += 1;
     }
 
     return Vektor_Length;

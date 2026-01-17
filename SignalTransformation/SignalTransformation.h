@@ -1,26 +1,24 @@
 #include <iostream>
 #include <vector>
 #include <complex>
+#include <sstream>
 #include <cmath>
+#include <fstream> 
 using namespace std; 
 
 
 class SignalTransformation{
 public:
     static void DFT(vector<complex<double>> InputVektor){
-        void Transformation();
-        double AbsolutWert;
-        complex<double> a=-1;
-        complex<double> imag = sqrt(a);
-        double Vektor_Length = InputVektor.size();
+        complex<double> i(0,1);
+        size_t Vektor_Length = InputVektor.size();
         vector<complex<double>> ErgebnisVektor(Vektor_Length, 0);
-        vector<double> Magnitudenvektor(Vektor_Length);
-        vector<double> Phasenvektor(Vektor_Length); 
-        for (double k =0; k<(Vektor_Length); k++)
+        vector<double> Magnitudenvektor(Vektor_Length), Phasenvektor(Vektor_Length); ;
+        for (size_t k =0; k<(Vektor_Length); k++)
             {
-                for (double j =0; j<(Vektor_Length); j++)
+                for (size_t j =0; j<(Vektor_Length); j++)
                 {
-                    ErgebnisVektor[k]+= (1/sqrt(Vektor_Length))*InputVektor[j]*exp(-2*M_PI*imag*j*(k)/(Vektor_Length));
+                    ErgebnisVektor[k]+= (1/sqrt(Vektor_Length))*InputVektor[j]*exp(-2*M_PI*i*double(k*j)/double(Vektor_Length));
                 }
                 Magnitudenvektor[k] = sqrt(ErgebnisVektor[k].imag()*ErgebnisVektor[k].imag() + ErgebnisVektor[k].real()*(ErgebnisVektor[k].real()));
                 Phasenvektor[k] = atan2(ErgebnisVektor[k].imag(), ErgebnisVektor[k].real());
@@ -57,46 +55,35 @@ Phase:
 2.081 rad
 (119.2∘
 
-/////
-double Vektor_Length = 0;
-
-double SignalTransformation::ReadDataFromFile(const string& Filename)
+////*/
+static vector<complex<double>> ReadDataFromFile(const string& Filename)
 {
     // Daten von File lesen
-    string TextFromFile, Dataset;
+    //string Filename = 
+    vector<complex<double>> data;
     ifstream DFT_File(Filename);
 
     if (!DFT_File.is_open()) {
         cerr << "Fehler: Datei konnte nicht geöffnet werden: " << Filename << endl;
-        return -1;
+        return data;
     }
+    string line;
+    while (getline(file,line)){
+        line.erase(remove(line.begin(), line.end(), ' ', line.end()));
 
-    while (getline(DFT_File, TextFromFile)) {
-        Dataset += TextFromFile + "\n";
+    }
+    // String aufteilen und in komplexe Zahl umwandeln
+    double re, im;
+    char comma; 
+    
+    while (DFT_File >> re >> comma >>im){
+        data.push_back(complex<double>(re, im));
     }
     DFT_File.close();
-
-    // String aufteilen und in komplexe Zahl umwandeln
-    string token;
-    stringstream obj_ss(Dataset);
-
-    while (getline(obj_ss, token, ',')) {
-        cout << "String-Split: " << token << endl;
-        String_Split.push_back(token);
-
-        // Versuch, in komplexe Zahl umzuwandeln
-        complex<double> KomplexeZahl;
-        istringstream S2C(token);
-        S2C >> KomplexeZahl;
-
-        cout << "Komplexe Zahl: " << KomplexeZahl << endl;
-        Vektor_Length += 1;
-    }
-
-    return Vektor_Length;
+    return data;
 }
 
-
+/*
 double SignalTransformation::ReadFromFile()
 {   // Daten von File lesen
     string Text_from_file, Dataset, String_Split;
