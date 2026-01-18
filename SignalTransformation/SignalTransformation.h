@@ -13,7 +13,7 @@ public:
         complex<double> i(0,1);
         size_t Vektor_Length = InputVektor.size();
         vector<complex<double>> ErgebnisVektor(Vektor_Length, 0);
-        vector<double> Magnitudenvektor(Vektor_Length), Phasenvektor(Vektor_Length); ;
+        vector<double> Magnitudenvektor(Vektor_Length), Phasenvektor(Vektor_Length);
         for (size_t k =0; k<(Vektor_Length); k++)
             {
                 for (size_t j =0; j<(Vektor_Length); j++)
@@ -56,33 +56,63 @@ Phase:
 (119.2∘
 
 ////*/
-static vector<complex<double>> ReadDataFromFile(const string& Filename)
+static vector<string> ReadDataFromFile(string filename)
 {
     // Daten von File lesen
-    //string Filename = 
-    vector<complex<double>> data;
-    ifstream DFT_File(Filename);
+    string TextFromFile, Dataset;
+    ifstream DFT_File(filename);
+    vector<string> String_Split;
 
     if (!DFT_File.is_open()) {
-        cerr << "Fehler: Datei konnte nicht geöffnet werden: " << Filename << endl;
-        return data;
+        cerr << "Fehler: Datei konnte nicht geöffnet werden: " << filename << endl;
     }
-    string line;
-    while (getline(file,line)){
-        line.erase(remove(line.begin(), line.end(), ' ', line.end()));
+
+    while (getline(DFT_File, TextFromFile)) {
+        Dataset += TextFromFile + "\n";
+    }
+
+    DFT_File.close();
+
+    // String aufteilen und in komplexe Zahl umwandeln
+
+   stringstream obj_ss(Dataset);
+   string SplitString;
+    while (getline(obj_ss, SplitString, ',')) {
+        cout << "String-Split: " << SplitString << endl;
+        String_Split.push_back(SplitString);
 
     }
-    // String aufteilen und in komplexe Zahl umwandeln
-    double re, im;
-    char comma; 
-    
-    while (DFT_File >> re >> comma >>im){
-        data.push_back(complex<double>(re, im));
-    }
-    DFT_File.close();
-    return data;
+    cout << endl << "Dataset 5: " << String_Split[5];
+    return String_Split;
 }
 
+static vector<string> StringBereinigen(vector<string> SplitString){
+    vector<string> BereinigterString;
+    int length = SplitString.size();
+    for (int i = 0; i<length; i++){
+        if (SplitString[i].front() == '(' && SplitString[i].back() == ')') {
+        SplitString[i] = SplitString[i].substr(1, SplitString[i].size() - 2);
+        }
+
+        if (!SplitString[i].empty() && SplitString[i].back() == 'j') {
+            SplitString[i].pop_back();
+        }   
+    }
+    BereinigterString = SplitString;
+    return BereinigterString;
+}
+
+static vector<complex<double>> StringToComplex(vector<string> Inputstring){
+    cout << Inputstring[7] << "Test";
+    vector<complex<double>> KomplexerVektor;
+    int Vektor_Length = Inputstring.size();
+    for(int i = 0; i < Vektor_Length; i++){
+        //KomplexerVektor << Inputstring[i];
+        cout << "Komplex"  << Inputstring[i] << endl;
+    }
+
+    return{(KomplexerVektor)};
+}
 /*
 double SignalTransformation::ReadFromFile()
 {   // Daten von File lesen

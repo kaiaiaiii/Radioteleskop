@@ -13,7 +13,7 @@ using namespace std;
 
 class ReadFromFile {
 public:
-    double ReadDataFromFile(const string& filename);
+    static double ReadDataFromFile(const string& filename);
 
 protected:
     vector<string> String_Split;
