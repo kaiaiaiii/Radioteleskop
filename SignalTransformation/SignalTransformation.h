@@ -9,25 +9,22 @@ using namespace std;
 
 class SignalTransformation{
 public:
-    static void DFT(vector<complex<double>> InputVektor){
+    static vector<complex<double>> DFT(vector<complex<double>> InputVektor){
         complex<double> i(0,1);
         size_t Vektor_Length = InputVektor.size();
         vector<complex<double>> ErgebnisVektor(Vektor_Length, 0);
-        vector<double> Magnitudenvektor(Vektor_Length), Phasenvektor(Vektor_Length);
+
         for (size_t k =0; k<(Vektor_Length); k++)
             {
                 for (size_t j =0; j<(Vektor_Length); j++)
                 {
                     ErgebnisVektor[k]+= (1/sqrt(Vektor_Length))*InputVektor[j]*exp(-2*M_PI*i*double(k*j)/double(Vektor_Length));
                 }
-                Magnitudenvektor[k] = sqrt(ErgebnisVektor[k].imag()*ErgebnisVektor[k].imag() + ErgebnisVektor[k].real()*(ErgebnisVektor[k].real()));
-                Phasenvektor[k] = atan2(ErgebnisVektor[k].imag(), ErgebnisVektor[k].real());
                 cout << "Ergebnis" << ErgebnisVektor[k];
-                cout << "Magnitude" << Magnitudenvektor[k];
-                cout << "Phase" << Phasenvektor[k] << '\n';
+            };
 
-        };
-};
+    return ErgebnisVektor;
+    };
 /*
 Magnitude:
 
@@ -112,6 +109,18 @@ static vector<complex<double>> StringToComplex(vector<string> Inputstring){
     }
 
     return{(KomplexerVektor)};
+}
+
+static int WriteToFile(vector<complex<double>> ErgebnisVektor, vector<double> Magnitudenvektor, vector<double> Phasenvektor){
+    ofstream File;
+    File.open("Ergebnis.txt");
+    int VektorLength = ErgebnisVektor.size();
+    for(int i = 0; i<VektorLength; i++){
+        File << ErgebnisVektor[i] << " " << Magnitudenvektor[i] << " " << Phasenvektor[i]<< endl;
+    }
+
+    File.close();
+    return 0;
 }
 /*
 double SignalTransformation::ReadFromFile()

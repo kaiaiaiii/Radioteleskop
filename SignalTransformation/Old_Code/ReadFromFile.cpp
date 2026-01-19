@@ -41,7 +41,7 @@ static vector<string> StringBereinigen(vector<string> SplitString){
     vector<string> BereinigterString;
     int length = SplitString.size();
     for (int i = 0; i<length; i++){
-        if (SplitString[i].front() == ' (' && SplitString[i].back() == ')') {
+        if (SplitString[i].front() == '(' && SplitString[i].back() == ')') {
         SplitString[i] = SplitString[i].substr(1, SplitString[i].size() - 2);
         }
 
