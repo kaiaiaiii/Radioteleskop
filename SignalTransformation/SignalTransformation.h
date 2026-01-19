@@ -1,9 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <complex>
+#include <string>
 #include <sstream>
 #include <cmath>
 #include <fstream> 
+#include <stdexcept>
+#include <algorithm>
 using namespace std; 
 
 
@@ -100,15 +103,47 @@ static vector<string> StringBereinigen(vector<string> SplitString){
 }
 
 static vector<complex<double>> StringToComplex(vector<string> Inputstring){
-    cout << Inputstring[7] << "Test";
+    //Diese Funktion ist mit ChatGPT gemacht. 
     vector<complex<double>> KomplexerVektor;
+    KomplexerVektor.reserve(Inputstring.size());
+    /* mein Versuch
     int Vektor_Length = Inputstring.size();
     for(int i = 0; i < Vektor_Length; i++){
         //KomplexerVektor << Inputstring[i];
         cout << "Komplex"  << Inputstring[i] << endl;
+    }*/
+   for (string s : Inputstring)
+    {
+        s.erase(remove_if(s.begin(), s.end(),
+            [](char c)
+            {
+                return c == '(' || c == ')' || c == 'j' || c == ' ' || c==  '[' || c== ']';
+            }),
+            s.end());
+
+        // Trennstelle zwischen Real- und Imaginärteil finden
+        // (letztes + oder -; aber nicht das erste Zeichen)
+        size_t pos = string::npos;
+        for (::size_t i = 1; i < s.size(); ++i)
+        {
+            if (s[i] == '+' || s[i] == '-')
+            {
+                pos = i;
+            }
+        }
+
+        if (pos == string::npos)
+        {
+            throw runtime_error("Ungültiges komplexes Format: " + s);
+        }
+
+        double real = stod(s.substr(0, pos));
+        double imag = stod(s.substr(pos));
+
+        KomplexerVektor.emplace_back(real, imag);
     }
 
-    return{(KomplexerVektor)};
+    return KomplexerVektor;
 }
 
 static int WriteToFile(vector<complex<double>> ErgebnisVektor, vector<double> Magnitudenvektor, vector<double> Phasenvektor){
