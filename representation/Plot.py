@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-#import pandas as pd
 
 ZeilenVektor, Magnitudenvektor, Phasenvektor = [], [], []
 
@@ -14,7 +13,7 @@ with open("../SignalTransformation/Ergebnis.txt") as Daten:
         Magnitudenvektor.append(Magnitude)
         Phasenvektor.append(Phase)
     print(Phasenvektor)
-k = np.linspace(0, len(Magnitudenvektor)) ####
+k = np.arange(len(Magnitudenvektor)) ####
 
 plt.figure()
 plt.stem(Phasenvektor, k,use_line_collection=True)

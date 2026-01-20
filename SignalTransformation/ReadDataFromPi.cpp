@@ -1,6 +1,5 @@
 #include <iostream>
-#include <wiringPi.h>
-#include "ReadFromSDR.cpp"
+#include "../ExterneLibraries/wiringPi.h"
 
 using namespace std;
 

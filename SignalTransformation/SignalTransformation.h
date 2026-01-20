@@ -16,14 +16,15 @@ public:
         complex<double> i(0,1);
         size_t Vektor_Length = InputVektor.size();
         vector<complex<double>> ErgebnisVektor(Vektor_Length, 0);
-
+        #pragma omp parallel
         for (size_t k =0; k<(Vektor_Length); k++)
-            {
+            {   
+                #pragma omp parallel
                 for (size_t j =0; j<(Vektor_Length); j++)
                 {
                     ErgebnisVektor[k]+= /* (1/sqrt(Vektor_Length))* */InputVektor[j]*exp(-2*M_PI*i*double(k*j)/double(Vektor_Length));
                 }
-                cout << "Ergebnis" << ErgebnisVektor[k];
+                //cout << "Ergebnis" << ErgebnisVektor[k];
             };
 
     return ErgebnisVektor;
