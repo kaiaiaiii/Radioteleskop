@@ -1,7 +1,10 @@
 Given Materials
 -Satellite Bowl
--Cheap SDR
--Bypass Filters
+-RaspberryPi Zero 2W
+
+
+Further ideas and current issues:
+
 
 
 
