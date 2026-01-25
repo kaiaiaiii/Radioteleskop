@@ -6,9 +6,10 @@
 using namespace std;
 
 
-int main(){
+string Dataset = "Dataset.txt";
+int DFT(string Dataset){
 
-    vector<string> InputDaten = SignalTransformation::ReadDataFromFile("Dataset.txt");
+    vector<string> InputDaten = SignalTransformation::ReadDataFromFile(Dataset);
     vector<complex<double>> DFT_Input = SignalTransformation::StringToComplex(InputDaten);
     vector<complex<double>> DFT_Ergebnis = SignalTransformation::DFT({DFT_Input});
 

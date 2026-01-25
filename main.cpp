@@ -4,13 +4,12 @@
 #include <chrono>
 using namespace std;
 
-
+int DFT(string Dataset);
 
 int main(){
     while (true){
         auto start = std::chrono::high_resolution_clock::now();
-        vector<complex<double>> Versuchsvektor = SignalTransformation::DFT({1,2,3,4});
-        cout << Versuchsvektor[1] << " " << Versuchsvektor[2] << " " ;
+        DFT("Dataset.txt");
         auto stop = std::chrono::high_resolution_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop-start);
         cout << duration.count() << endl;
