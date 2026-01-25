@@ -1,0 +1,8 @@
+Fehlend fuer Radioteleskop
+Software:
+ein Mainfile
+makefile
+Raspi auslesen 
+
+Hardware:
+allesn ausser raspi
