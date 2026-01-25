@@ -4,6 +4,9 @@ Given Materials
 
 
 Further ideas and current issues:
+Linking the libraries
+mainfile
+makefile
 
 
 

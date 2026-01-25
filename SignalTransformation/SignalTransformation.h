@@ -12,7 +12,7 @@ using namespace std;
 
 class SignalTransformation{
 public:
-    static vector<complex<double>> DFT(vector<complex<double>>& InputVektor){
+    static vector<complex<double>> DFT(vector<complex<double>>&/*&*/ InputVektor){
         complex<double> i(0,1);
         size_t Vektor_Length = InputVektor.size();
         vector<complex<double>> ErgebnisVektor(Vektor_Length, 0);
