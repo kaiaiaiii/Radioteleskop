@@ -79,11 +79,11 @@ static vector<string> ReadDataFromFile(string filename)
    stringstream obj_ss(Dataset);
    string SplitString;
     while (getline(obj_ss, SplitString, ',')) {
-        cout << "String-Split: " << SplitString << endl;
+        //cout << "String-Split: " << SplitString << endl;
         String_Split.push_back(SplitString);
 
     }
-    cout << endl << "Dataset 5: " << String_Split[5];
+    //cout << endl << "Dataset 5: " << String_Split[5];
     return String_Split;
 }
 
