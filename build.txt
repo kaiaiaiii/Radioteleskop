@@ -1,0 +1,2 @@
+sudo apt install libgpiod-dev
+make main
