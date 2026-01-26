@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int main(){
+int ReadDataFromPi(){
     wiringPiSetup();
     pinMode(0, Output);
     pinMode(1, Input);

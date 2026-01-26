@@ -1,17 +1,17 @@
 #include <iostream>
-#include "SignalTransformation/SignalTransformation.h"
+#include "SignalTransformation/SignalTransformation.cpp"
+//#include "SignalTransformation/ReadDataFromPi.h"
 #include <complex>
 using namespace std;
 
-int DFT(string Dataset);
-
+int DiscreteFourierTransform(string Dataset);
+//int ReadDataFromPi();
 int main(){
     while (true){
-        DFT("Dataset.txt");
+        //ReadDataFromPi();
+        DiscreteFourierTransform("Dataset.txt");
+        //PlotData();
         
-        //for(int i =0; i<1000000000000000000 ; i++){
-        //cout << i << endl;
-       //} 
     }
     return 0;
 

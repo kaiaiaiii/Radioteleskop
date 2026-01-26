@@ -1,8 +1,15 @@
 Fehlend fuer Radioteleskop
 Software:
-ein Mainfile
-makefile
+File fuer Empfangsstaerke
+Ordentlich aufraeumen
+ein Mainfile 
+makefile -> Erledigt
 Raspi auslesen 
+
 
 Hardware:
 allesn ausser raspi
+
+
+Gesamt:
+Stimmt das DFT Ergebnis?

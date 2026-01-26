@@ -24,39 +24,11 @@ public:
                 {
                     ErgebnisVektor[k]+= /* (1/sqrt(Vektor_Length))* */InputVektor[j]*exp(-2*M_PI*i*double(k*j)/double(Vektor_Length));
                 }
-                //cout << "Ergebnis" << ErgebnisVektor[k];
             };
 
     return ErgebnisVektor;
     };
-/*
-Magnitude:
 
-∣X[1]∣≈0.643112+1.146552≈1.3146
-∣X[1]∣≈
-0.64311
-2
-+1.14655
-2
-​
-
-≈
-1.3146
-	​
-
-
-Phase:
-
-φ1≈atan2⁡(1.14655,−0.64311)≈2.081 rad  (119.2∘)
-φ
-1
-	​
-
-≈atan2(1.14655,−0.64311)≈
-2.081 rad
-(119.2∘
-
-////*/
 static vector<string> ReadDataFromFile(string filename)
 {
     // Daten von File lesen
