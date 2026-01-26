@@ -3,7 +3,7 @@ Software:
 File fuer Empfangsstaerke
 Ordentlich aufraeumen
 ein Mainfile 
-makefile -> Erledigt
+makefile -> Erledigt, bzw work in progress
 Raspi auslesen 
 
 

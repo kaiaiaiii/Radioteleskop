@@ -13,7 +13,7 @@ int DiscreteFourierTransform(string Dataset){
     vector<complex<double>> DFT_Ergebnis = SignalTransformation::DFT({DFT_Input});
 
 
-    size_t Vektor_Length = DFT_Ergebnis.size();
+    int Vektor_Length = DFT_Ergebnis.size();
     vector<double> Magnitudenvektor(Vektor_Length), Phasenvektor(Vektor_Length);
     #pragma omp parallel
     for (int k = 0; k < Vektor_Length; k++){

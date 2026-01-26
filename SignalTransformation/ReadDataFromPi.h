@@ -1,5 +1,7 @@
+#include <gpiod.h>
 #include <iostream>
+#include <unistd.h>
+
 
 using namespace std;
-
-int Test;
+int Auslesen();

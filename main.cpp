@@ -1,14 +1,16 @@
+#include <gpiod.h>
 #include <iostream>
-#include "SignalTransformation/SignalTransformation.cpp"
-//#include "SignalTransformation/ReadDataFromPi.h"
-#include <complex>
+#include <unistd.h>
+#include "SignalTransformation/SignalTransformation.h"
+#include "SignalTransformation/ReadDataFromPi.h"
 using namespace std;
 
 int DiscreteFourierTransform(string Dataset);
-//int ReadDataFromPi();
+int Auslesen();
+
 int main(){
     while (true){
-        //ReadDataFromPi();
+        Auslesen();
         DiscreteFourierTransform("Dataset.txt");
         //PlotData();
         

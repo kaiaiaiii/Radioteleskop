@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int main() {
+int Auslesen() {
     //geklaut, muss noch jetzt angepasst werden
     const char* chipname = "gpiochip0";
     const unsigned int line_num = 17;
