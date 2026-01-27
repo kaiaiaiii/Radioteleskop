@@ -1,15 +1,16 @@
-Fehlend fuer Radioteleskop
+Fehlend für Radioteleskop
 Software:
-File fuer Empfangsstaerke
-Ordentlich aufraeumen
-ein Mainfile 
+File für Empfangsstaerke
+Ordentlich aufräumen
+ein Mainfile -> fuers erste gemacht
 makefile -> Erledigt, bzw work in progress
 Raspi auslesen 
-
+Besseres Filemanagement, gerade zur Benennung von Input und outputfile.
 
 Hardware:
-allesn ausser raspi
+alles ausser raspi
+Steckplatine ist bestellt, erstmal mit einem GPIO Input arbeiten
 
 
 Gesamt:
-Stimmt das DFT Ergebnis?
+Validierung?

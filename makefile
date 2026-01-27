@@ -4,7 +4,8 @@ LDFLAGS = -lgpiod -fopenmp
 
 OBJS = main.o \
        SignalTransformation/SignalTransformation.o \
-       SignalTransformation/ReadDataFromPi.o
+       SignalTransformation/ReadDataFromPi.o \
+       SignalTransformation/FileReadWrite.o
 
 all: main
 
@@ -19,6 +20,9 @@ SignalTransformation/SignalTransformation.o: SignalTransformation/SignalTransfor
 
 SignalTransformation/ReadDataFromPi.o: SignalTransformation/ReadDataFromPi.cpp
 	$(CXX) $(CXXFLAGS) -c SignalTransformation/ReadDataFromPi.cpp -o SignalTransformation/ReadDataFromPi.o
+
+SignalTransformation/FileReadWrite.o: SignalTransformation/FileReadWrite.cpp
+	$(CXX) $(CXXFLAGS) -c SignalTransformation/FileReadWrite.cpp -o SignalTransformation/FileReadWrite.o
 
 clean:
 	rm -f main $(OBJS)

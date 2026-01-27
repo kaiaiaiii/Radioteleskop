@@ -4,11 +4,12 @@
 #include <cmath>
 #include <chrono>
 #include "SignalTransformation.h"
+#include "FileReadWrite.h"
 using namespace std;
 
-int DiscreteFourierTransform(string Dataset){
+int DiscreteFourierTransform(string Dataset, string Outputfile){
     auto start = std::chrono::high_resolution_clock::now();
-    vector<string> InputDaten = SignalTransformation::ReadDataFromFile(Dataset);
+    vector<string> InputDaten = FileReadWrite::ReadDataFromFile(Dataset);
     vector<complex<double>> DFT_Input = SignalTransformation::StringToComplex(InputDaten);
     vector<complex<double>> DFT_Ergebnis = SignalTransformation::DFT({DFT_Input});
 
@@ -21,7 +22,7 @@ int DiscreteFourierTransform(string Dataset){
         Phasenvektor[k] += atan2(DFT_Ergebnis[k].imag(), DFT_Ergebnis[k].real());
     }
 
-    SignalTransformation::WriteToFile(DFT_Ergebnis,Magnitudenvektor,Phasenvektor );
+    FileReadWrite::WriteToFile(DFT_Ergebnis,Magnitudenvektor,Phasenvektor, Outputfile );
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop-start);
     cout << duration.count() << endl;

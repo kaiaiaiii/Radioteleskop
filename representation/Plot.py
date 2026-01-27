@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 ZeilenVektor, Magnitudenvektor, Phasenvektor = [], [], []
 
 
-with open("../SignalTransformation/Ergebnis.txt") as Daten:
+with open("../Ergebnis.txt") as Daten:
     for line in Daten:
         ZeilenVektor = line.split()
         Magnitude = float(ZeilenVektor[1])

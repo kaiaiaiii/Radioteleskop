@@ -12,52 +12,25 @@ using namespace std;
 
 class SignalTransformation{
 public:
-    static vector<complex<double>> DFT(vector<complex<double>>/*&*/ InputVektor){
-        complex<double> i(0,1);
-        int Vektor_Length = InputVektor.size();
-        vector<complex<double>> ErgebnisVektor(Vektor_Length, 0);
-        #pragma omp parallel
-        for (int k =0; k<(Vektor_Length); k++)
-            {   
-                #pragma omp parallel
-                for (int j =0; j<(Vektor_Length); j++)
-                {
-                    ErgebnisVektor[k]+= /* (1/sqrt(Vektor_Length))* */InputVektor[j]*exp(-2*M_PI*i*double(k*j)/double(Vektor_Length));
-                }
-            };
+int DiscreteFourierTransform(string Dataset, string Outputfile);
 
-    return ErgebnisVektor;
-    };
+static vector<complex<double>> DFT(vector<complex<double>>& InputVektor){
+    complex<double> i(0,1);
+    int Vektor_Length = InputVektor.size();
+    vector<complex<double>> ErgebnisVektor(Vektor_Length, 0);
+    #pragma omp parallel
+    for (int k =0; k<(Vektor_Length); k++)
+        {   
+            #pragma omp parallel
+            for (int j =0; j<(Vektor_Length); j++)
+            {
+                ErgebnisVektor[k]+= /* (1/sqrt(Vektor_Length))* */InputVektor[j]*exp(-2*M_PI*i*double(k*j)/double(Vektor_Length));
+            }
+        };
 
-static vector<string> ReadDataFromFile(string filename)
-{
-    // Daten von File lesen
-    string TextFromFile, Dataset;
-    ifstream DFT_File(filename);
-    vector<string> String_Split;
+return ErgebnisVektor;
+};
 
-    if (!DFT_File.is_open()) {
-        cerr << "Fehler: Datei konnte nicht geöffnet werden: " << filename << endl;
-    }
-
-    while (getline(DFT_File, TextFromFile)) {
-        Dataset += TextFromFile + "\n";
-    }
-
-    DFT_File.close();
-
-    // String aufteilen und in komplexe Zahl umwandeln
-
-   stringstream obj_ss(Dataset);
-   string SplitString;
-    while (getline(obj_ss, SplitString, ',')) {
-        //cout << "String-Split: " << SplitString << endl;
-        String_Split.push_back(SplitString);
-
-    }
-    //cout << endl << "Dataset 5: " << String_Split[5];
-    return String_Split;
-}
 
 static vector<string> StringBereinigen(vector<string> SplitString){
     vector<string> BereinigterString;
@@ -119,17 +92,7 @@ static vector<complex<double>> StringToComplex(vector<string> Inputstring){
     return KomplexerVektor;
 }
 
-static int WriteToFile(vector<complex<double>> ErgebnisVektor, vector<double> Magnitudenvektor, vector<double> Phasenvektor){
-    ofstream File;
-    File.open("Ergebnis.txt");
-    int VektorLength = ErgebnisVektor.size();
-    for(int i = 0; i<VektorLength; i++){
-        File << ErgebnisVektor[i] << " " << Magnitudenvektor[i] << " " << Phasenvektor[i]<< endl;
-    }
 
-    File.close();
-    return 0;
-}
 /*
 double SignalTransformation::ReadFromFile()
 {   // Daten von File lesen

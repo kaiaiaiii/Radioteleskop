@@ -1,10 +1,11 @@
 #include <gpiod.h>
 #include <iostream>
 #include <unistd.h>
+#include "FileReadWrite.h"
 
 using namespace std;
 
-int Auslesen() {
+int ReadDataFromPi(string filename) {
     //geklaut, muss noch jetzt angepasst werden
     const char* chipname = "gpiochip0";
     const unsigned int line_num = 17;
@@ -29,6 +30,7 @@ int Auslesen() {
     while (true) {
         int value = gpiod_line_get_value(line);
         cout << "GPIO 17: " << value << endl;
+        FileReadWrite::WriteIntToFile(value, filename);
         sleep(1);
     }
 

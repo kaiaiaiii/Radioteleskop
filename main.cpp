@@ -3,15 +3,17 @@
 #include <unistd.h>
 #include "SignalTransformation/SignalTransformation.h"
 #include "SignalTransformation/ReadDataFromPi.h"
+#include "SignalTransformation/FileReadWrite.h"
 using namespace std;
 
-int DiscreteFourierTransform(string Dataset);
-int Auslesen();
-
+int DiscreteFourierTransform(string Dataset, string Outputfile);
+//int ReadDataFromPi(string filename);
+string filename = "Dataset.txt";
+string Outputfile = "Ergebnis.txt";
 int main(){
     while (true){
-        Auslesen();
-        DiscreteFourierTransform("Dataset.txt");
+        ReadDataFromPi(filename);
+        DiscreteFourierTransform(filename, Outputfile);
         //PlotData();
         
     }

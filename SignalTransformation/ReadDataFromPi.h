@@ -4,4 +4,4 @@
 
 
 using namespace std;
-int Auslesen();
+int ReadDataFromPi(string filename);
