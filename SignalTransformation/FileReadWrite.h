@@ -42,9 +42,9 @@ static vector<string> ReadDataFromFile(string filename)
     return String_Split;
 }
 
-static int WriteToFile(vector<complex<double>> ErgebnisVektor, vector<double> Magnitudenvektor, vector<double> Phasenvektor, string Ergebnisfilename){
+static int WriteToFile(vector<complex<double>> ErgebnisVektor, vector<double> Magnitudenvektor, vector<double> Phasenvektor, string Outputfile){
     ofstream File;
-    File.open(Ergebnisfilename);
+    File.open(Outputfile);
     int VektorLength = ErgebnisVektor.size();
     for(int i = 0; i<VektorLength; i++){
         File << ErgebnisVektor[i] << " " << Magnitudenvektor[i] << " " << Phasenvektor[i]<< endl;

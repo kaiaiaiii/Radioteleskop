@@ -22,7 +22,7 @@ int DiscreteFourierTransform(string Dataset, string Outputfile){
         Phasenvektor[k] += atan2(DFT_Ergebnis[k].imag(), DFT_Ergebnis[k].real());
     }
 
-    FileReadWrite::WriteToFile(DFT_Ergebnis,Magnitudenvektor,Phasenvektor, Outputfile );
+    FileReadWrite::WriteToFile(DFT_Ergebnis,Magnitudenvektor,Phasenvektor,Outputfile);
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop-start);
     cout << duration.count() << endl;
